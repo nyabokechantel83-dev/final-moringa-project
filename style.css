@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+/* HEADER */
+header {
+  background: #111827;
+  padding: 20px;
+  text-align: center;
+}
+
+/* NAV */
+nav {
+  background: #1f2937;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  background: #2563eb;
+}
+
+/* MAIN LAYOUT */
+main {
+  padding: 20px;
+}
+
+/* CARDS */
+section {
+  background: #1e293b;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* BUTTONS */
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+/* INPUTS */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 6px;
+  border: none;
+  background: #0b1220;
+  color: white;
+}
+
+/* TABLE STYLE (if you use tables) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #334155;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #111827;
+  margin-top: 20px;
+}
