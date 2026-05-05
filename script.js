@@ -120,7 +120,7 @@ let message = document.getElementById("message").value;
 let status = document.getElementById("contactStatus");
 
 if (name === "" || email === "" || message === "") {
-status.innerText = "❌ Please fill all fields!";
+status.innerText = " Please fill all fields!";
 status.style.color = "red";
 return;
 }
@@ -130,7 +130,7 @@ let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
 contacts.push({ name, email, message });
 localStorage.setItem("contacts", JSON.stringify(contacts));
 
-status.innerText = "✅ Message sent successfully!";
+status.innerText = "Message sent successfully!";
 status.style.color = "green";
 
 contactForm.reset();
