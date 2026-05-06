@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-// highlight the current page in the nav
 let links = document.querySelectorAll("nav a");
 links.forEach(function (link) {
   if (link.href === window.location.href) {
@@ -9,14 +8,11 @@ links.forEach(function (link) {
 });
 
 
-/* =========================
-   INVENTORY
-========================= */
+/* INVENTORY */
 
 let productForm = document.getElementById("productForm");
 let productList = document.getElementById("productList");
 
-// load products from localStorage, if none start with empty array
 let products = JSON.parse(localStorage.getItem("products")) || [];
 
 function showProducts() {
@@ -24,13 +20,11 @@ function showProducts() {
 
   productList.innerHTML = "";
 
-  // show message if no products added yet
   if (products.length === 0) {
     productList.innerHTML = "<p>No products yet.</p>";
     return;
   }
 
-  // loop through products and make a card for each one
   products.forEach(function (product, index) {
     productList.innerHTML += `
       <div class="card">
@@ -48,51 +42,44 @@ if (productForm) {
     e.preventDefault();
 
     let name = document.getElementById("productName").value;
-    let price = document.getElementById("price").value;
-    let stock = document.getElementById("stock").value;
+    let price = Number(document.getElementById("price").value);
+    let stock = Number(document.getElementById("stock").value);
 
-    // make sure nothing is empty
-    if (name === "" || price === "" || stock === "") {
+    if (name === "" || price <= 0 || stock <= 0) {
       alert("Please fill in all fields");
       return;
     }
 
-    // save new product and refresh list
     products.push({ name, price, stock });
     localStorage.setItem("products", JSON.stringify(products));
 
     productForm.reset();
     showProducts();
-    showInventoryRevenue(); // update revenue after adding product
+    showInventoryRevenue();
+    showHomeSummary();
   });
 }
 
-// put on window so delete button inside card can access it
 window.removeProduct = function (index) {
-
-  // ask before deleting so user doesnt lose data by accident
-  let confirmed = confirm("Are you sure you want to delete this product?");
+  let confirmed = confirm("Delete this product?");
   if (!confirmed) return;
 
   products.splice(index, 1);
   localStorage.setItem("products", JSON.stringify(products));
   showProducts();
   showInventoryRevenue();
+  showHomeSummary();
 };
 
 showProducts();
 
 
-/* =========================
-   INVENTORY REVENUE
-========================= */
-
 function showInventoryRevenue() {
   let inventoryRevenue = document.getElementById("inventoryRevenue");
   if (!inventoryRevenue) return;
 
-  // calculate total stock value — price x stock for each product
   let totalValue = 0;
+
   products.forEach(function (product) {
     totalValue += Number(product.price) * Number(product.stock);
   });
@@ -100,7 +87,7 @@ function showInventoryRevenue() {
   inventoryRevenue.innerHTML = `
     <div class="card">
       <p>Total Products: ${products.length}</p>
-      <p style="font-weight:bold; color:green;">Total Stock Value: KES ${totalValue}</p>
+      <p>Total Stock Value: KES ${totalValue}</p>
     </div>
   `;
 }
@@ -108,14 +95,11 @@ function showInventoryRevenue() {
 showInventoryRevenue();
 
 
-/* =========================
-   SALES
-========================= */
+/* SALES */
 
 let salesForm = document.getElementById("salesForm");
 let salesList = document.getElementById("salesList");
 
-// load sales from localStorage or start fresh
 let sales = JSON.parse(localStorage.getItem("sales")) || [];
 
 function showSales() {
@@ -123,13 +107,11 @@ function showSales() {
 
   salesList.innerHTML = "";
 
-  // show message if no sales recorded yet
   if (sales.length === 0) {
     salesList.innerHTML = "<p>No sales recorded yet.</p>";
     return;
   }
 
-  // display each sale as a card
   sales.forEach(function (sale) {
     salesList.innerHTML += `
       <div class="card">
@@ -146,51 +128,50 @@ if (salesForm) {
     e.preventDefault();
 
     let product = document.getElementById("saleProduct").value;
-    let quantity = document.getElementById("quantity").value;
-    let price = document.getElementById("salePrice").value;
+    let quantity = Number(document.getElementById("quantity").value);
+    let price = Number(document.getElementById("salePrice").value);
 
-    // dont save if fields are empty
-    if (product === "" || quantity === "" || price === "") {
+    if (product === "" || quantity <= 0 || price <= 0) {
       alert("Please fill in all fields");
       return;
     }
 
-    // save sale and refresh list
-    sales.push({ product, quantity, price });
+    sales.push({
+      product: product,
+      quantity: quantity,
+      price: price
+    });
+
     localStorage.setItem("sales", JSON.stringify(sales));
 
     salesForm.reset();
     showSales();
     showSalesRevenue();
     showProfitLoss();
+    showHomeSummary();
   });
 }
 
 showSales();
 
 
-/* =========================
-   SALES REVENUE
-========================= */
-
 function showSalesRevenue() {
   let salesRevenue = document.getElementById("salesRevenue");
   if (!salesRevenue) return;
 
-  // add up all sale amounts
   let totalRevenue = 0;
+
   sales.forEach(function (sale) {
-    totalRevenue += Number(sale.price);
+    totalRevenue += Number(sale.price) || 0;
   });
 
-  // work out average sale amount
   let average = sales.length > 0 ? (totalRevenue / sales.length).toFixed(2) : 0;
 
   salesRevenue.innerHTML = `
     <div class="card">
       <p>Total Sales Made: ${sales.length}</p>
       <p>Average Sale Amount: KES ${average}</p>
-      <p style="font-weight:bold; color:green;">Total Revenue: KES ${totalRevenue}</p>
+      <p>Total Revenue: KES ${totalRevenue}</p>
     </div>
   `;
 }
@@ -198,14 +179,11 @@ function showSalesRevenue() {
 showSalesRevenue();
 
 
-/* =========================
-   EXPENSES
-========================= */
+/* EXPENSES */
 
 let expenseForm = document.getElementById("expenseForm");
 let expenseList = document.getElementById("expenseList");
 
-// load expenses from localStorage or start fresh
 let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 
 function showExpenses() {
@@ -213,13 +191,11 @@ function showExpenses() {
 
   expenseList.innerHTML = "";
 
-  // show message if no expenses added yet
   if (expenses.length === 0) {
     expenseList.innerHTML = "<p>No expenses recorded yet.</p>";
     return;
   }
 
-  // display each expense as a card
   expenses.forEach(function (expense, index) {
     expenseList.innerHTML += `
       <div class="card">
@@ -236,62 +212,55 @@ if (expenseForm) {
     e.preventDefault();
 
     let name = document.getElementById("expenseName").value;
-    let amount = document.getElementById("expenseAmount").value;
+    let amount = Number(document.getElementById("expenseAmount").value);
 
-    // make sure both fields are filled
-    if (name === "" || amount === "") {
+    if (name === "" || amount <= 0) {
       alert("Please fill in all fields");
       return;
     }
 
-    // save expense and refresh list
     expenses.push({ name, amount });
     localStorage.setItem("expenses", JSON.stringify(expenses));
 
     expenseForm.reset();
     showExpenses();
     showProfitLoss();
+    showHomeSummary();
   });
 }
 
-// delete an expense
 window.removeExpense = function (index) {
-  let confirmed = confirm("Are you sure you want to delete this expense?");
+  let confirmed = confirm("Delete this expense?");
   if (!confirmed) return;
 
   expenses.splice(index, 1);
   localStorage.setItem("expenses", JSON.stringify(expenses));
   showExpenses();
   showProfitLoss();
+  showHomeSummary();
 };
 
 showExpenses();
 
 
-/* =========================
-   PROFIT AND LOSS
-========================= */
+/* PROFIT LOSS */
 
 function showProfitLoss() {
   let profitLossDiv = document.getElementById("profitLoss");
   if (!profitLossDiv) return;
 
-  // add up all sales amounts
   let totalSales = 0;
   sales.forEach(function (sale) {
-    totalSales += Number(sale.price);
+    totalSales += Number(sale.price) || 0;
   });
 
-  // add up all expenses
   let totalExpenses = 0;
   expenses.forEach(function (expense) {
-    totalExpenses += Number(expense.amount);
+    totalExpenses += Number(expense.amount) || 0;
   });
 
-  // calculate profit or loss
   let result = totalSales - totalExpenses;
 
-  // green for profit, red for loss
   let color = result >= 0 ? "green" : "red";
   let label = result >= 0 ? "Profit" : "Loss";
 
@@ -299,7 +268,7 @@ function showProfitLoss() {
     <div class="card">
       <p>Total Revenue: KES ${totalSales}</p>
       <p>Total Expenses: KES ${totalExpenses}</p>
-      <p style="color:${color}; font-weight:bold;">${label}: KES ${Math.abs(result)}</p>
+      <p style="color:${color};">${label}: KES ${Math.abs(result)}</p>
     </div>
   `;
 }
@@ -307,26 +276,22 @@ function showProfitLoss() {
 showProfitLoss();
 
 
-/* =========================
-   HOME SUMMARY
-========================= */
+/* HOME SUMMARY */
 
 function showHomeSummary() {
   let homeSummary = document.getElementById("homeSummary");
   if (!homeSummary) return;
 
-  // calculate totals for home page
   let totalRevenue = 0;
   sales.forEach(function (sale) {
-    totalRevenue += Number(sale.price);
+    totalRevenue += Number(sale.price) || 0;
   });
 
   let totalExpenses = 0;
   expenses.forEach(function (expense) {
-    totalExpenses += Number(expense.amount);
+    totalExpenses += Number(expense.amount) || 0;
   });
 
-  // total stock value
   let totalStockValue = 0;
   products.forEach(function (product) {
     totalStockValue += Number(product.price) * Number(product.stock);
@@ -342,7 +307,7 @@ function showHomeSummary() {
       <p>Total Stock Value: KES ${totalStockValue}</p>
       <p>Total Revenue: KES ${totalRevenue}</p>
       <p>Total Expenses: KES ${totalExpenses}</p>
-      <p style="color:${color}; font-weight:bold;">${label}: KES ${Math.abs(result)}</p>
+      <p style="color:${color};">${label}: KES ${Math.abs(result)}</p>
     </div>
   `;
 }
@@ -350,9 +315,7 @@ function showHomeSummary() {
 showHomeSummary();
 
 
-/* =========================
-   CONTACT FORM
-========================= */
+/* CONTACT FORM */
 
 let contactForm = document.getElementById("contactForm");
 
@@ -365,25 +328,17 @@ if (contactForm) {
     let message = document.getElementById("message").value;
     let status = document.getElementById("contactStatus");
 
-    // all three fields need to be filled
     if (name === "" || email === "" || message === "") {
       status.innerText = "Please fill in all fields";
       status.style.color = "red";
       return;
     }
 
-    // save contact message to localStorage
-    let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
-    contacts.push({ name, email, message });
-    localStorage.setItem("contacts", JSON.stringify(contacts));
-
-    // let the user know it worked
     status.innerText = "Message sent!";
     status.style.color = "green";
 
     contactForm.reset();
   });
 }
-
 
 });
