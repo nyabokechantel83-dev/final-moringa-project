@@ -1,19 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-
-/* =========================
-   NAV ACTIVE LINK
-========================= */
-
 // this just highlights whichever page you are on
 let links = document.querySelectorAll("nav a");
-
 links.forEach(function (link) {
   if (link.href === window.location.href) {
     link.classList.add("active");
   }
 });
-
 
 /* =========================
    INVENTORY
@@ -72,7 +65,7 @@ if (productForm) {
   });
 }
 
-// i put this outside so the delete button inside the card can access it
+// i put this on window so the delete button inside the card can access it
 window.removeProduct = function (index) {
 
   // just making sure the user didnt click delete by accident
@@ -85,7 +78,6 @@ window.removeProduct = function (index) {
 };
 
 showProducts();
-
 
 /* =========================
    SALES
@@ -143,7 +135,6 @@ if (salesForm) {
 
 showSales();
 
-
 /* =========================
    CONTACT FORM
 ========================= */
@@ -178,6 +169,5 @@ if (contactForm) {
     contactForm.reset();
   });
 }
-
 
 });

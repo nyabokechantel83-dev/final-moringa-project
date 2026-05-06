@@ -6,7 +6,7 @@ The Smart Retail Dashboard System is a web application that helps small shop own
 
 ## Author
 
-[Your Name Here]
+[Chantel]
 
 ## Setup Instructions
 
@@ -50,8 +50,8 @@ The Smart Retail Dashboard System is a web application that helps small shop own
 
 ## Contact Information
 
-[Your Email Here]
-[Your GitHub Profile Link Here]
+[nyabokechantel83@gmail.com]
+[https://github.com/nyabokechantel83-dev/final-moringa-project]
 
 ## License
 
