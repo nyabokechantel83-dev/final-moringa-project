@@ -1,10 +1,9 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sales System</title>
+  <title>Sales</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,7 +11,7 @@
 
   <header>
     <h1>Sales Management</h1>
-    <p>Here you can record and track all the sales that happen in your shop.</p>
+    <p>Record your daily sales, expenses and track your profit here.</p>
   </header>
 
   <nav>
@@ -26,23 +25,21 @@
     <!-- CASHIER COUNTER SECTION -->
     <section>
       <h2>Cashier Counter</h2>
-
       <img src="How to Level Up Your Retail Store's Customer Service.jpg" alt="Cashier counter in retail shop" />
-
       <p>
-        The Sales System cashier counter is where customers pay for things and sales are recorded.
-        It is the place where transactions happen in a shop that sells things.
+        This is where sales are recorded. Every time a customer buys something,
+        add it here so the system can track your revenue.
       </p>
     </section>
 
     <!-- SALES FORM -->
     <section>
       <h2>Record A Sale</h2>
-
       <form id="salesForm">
-        <input type="text" id="saleProduct" required />
-        <input type="number" id="quantity" required />
-        <button type="submit">Add The Sale</button>
+        <input type="text" id="saleProduct" placeholder="Product name" required />
+        <input type="number" id="quantity" placeholder="Quantity sold" required />
+        <input type="number" id="salePrice" placeholder="Sale amount (KES)" required />
+        <button type="submit">Add Sale</button>
       </form>
     </section>
 
@@ -50,6 +47,34 @@
     <section>
       <h2>Sales Records</h2>
       <div id="salesList"></div>
+    </section>
+
+    <!-- SALES REVENUE -->
+    <section>
+      <h2>Sales Revenue</h2>
+      <div id="salesRevenue"></div>
+    </section>
+
+    <!-- EXPENSES FORM -->
+    <section>
+      <h2>Add Expense</h2>
+      <form id="expenseForm">
+        <input type="text" id="expenseName" placeholder="Expense name e.g. Rent" required />
+        <input type="number" id="expenseAmount" placeholder="Amount (KES)" required />
+        <button type="submit">Add Expense</button>
+      </form>
+    </section>
+
+    <!-- EXPENSES LIST -->
+    <section>
+      <h2>Expenses List</h2>
+      <div id="expenseList"></div>
+    </section>
+
+    <!-- PROFIT AND LOSS -->
+    <section>
+      <h2>Profit & Loss</h2>
+      <div id="profitLoss"></div>
     </section>
 
   </main>
@@ -61,70 +86,4 @@
   <script src="script.js"></script>
 
 </body>
-</html><!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inventory System</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-
-  <body>
-    <header>
-      <h1>Inventory Management</h1>
-      <p>Manage Products Efficiently</p>
-    </header>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="inventory.html">Inventory</a>
-      <a href="sales.html">Sales</a>
-    </nav>
-
-    <main>
-
-      <!-- INVENTORY SECTION -->
-      <section>
-        <h2>Add Product</h2>
-
-        <img src="Amazon Warehouse.jpg" alt="stock management warehouse" />
-
-        <form id="productForm">
-          <input type="text" id="productName" required />
-          <input type="number" id="price" required />
-          <input type="number" id="stock" required />
-          <button type="submit">Add Product</button>
-        </form>
-      </section>
-
-      <section>
-        <h2>Product List</h2>
-        <div id="productList"></div>
-      </section>
-
-      <!-- CONTACT FORM -->
-      <section>
-        <h2>Contact Support</h2>
-        <p>Need help with inventory? Send us a message below:</p>
-
-        <form id="contactForm">
-          <input type="text" id="name" required />
-          <input type="email" id="email" required />
-          <input type="text" id="message" required />
-
-          <button type="submit">Send Message</button>
-        </form>
-
-        <p id="contactStatus"></p>
-      </section>
-
-    </main>
-
-    <footer>
-      <p>© 2026 Smart Retail System</p>
-    </footer>
-
-    <script src="script.js"></script>
-  </body>
 </html>
