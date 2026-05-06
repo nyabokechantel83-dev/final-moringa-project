@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inventory System</title>
+    <title>Inventory</title>
     <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
+
     <header>
       <h1>Inventory Management</h1>
-      <p>Manage Products Efficiently</p>
+      <p>Manage your products and track stock value</p>
     </header>
 
     <nav>
@@ -21,38 +22,40 @@
 
     <main>
 
-      <!-- INVENTORY SECTION -->
+      <!-- ADD PRODUCT -->
       <section>
         <h2>Add Product</h2>
-
         <img src="Amazon Warehouse.jpg" alt="stock management warehouse" />
-
         <form id="productForm">
-          <input type="text" id="productName" required />
-          <input type="number" id="price" required />
-          <input type="number" id="stock" required />
+          <input type="text" id="productName" placeholder="Product name" required />
+          <input type="number" id="price" placeholder="Price (KES)" required />
+          <input type="number" id="stock" placeholder="Stock quantity" required />
           <button type="submit">Add Product</button>
         </form>
       </section>
 
+      <!-- PRODUCT LIST -->
       <section>
         <h2>Product List</h2>
         <div id="productList"></div>
+      </section>
+
+      <!-- INVENTORY REVENUE -->
+      <section>
+        <h2>Inventory Revenue</h2>
+        <div id="inventoryRevenue"></div>
       </section>
 
       <!-- CONTACT FORM -->
       <section>
         <h2>Contact Support</h2>
         <p>Need help with inventory? Send us a message below:</p>
-
         <form id="contactForm">
-          <input type="text" id="name" required />
-          <input type="email" id="email" required />
-          <input type="text" id="message" required />
-
+          <input type="text" id="name" placeholder="Your name" required />
+          <input type="email" id="email" placeholder="Your email" required />
+          <input type="text" id="message" placeholder="Your message" required />
           <button type="submit">Send Message</button>
         </form>
-
         <p id="contactStatus"></p>
       </section>
 
