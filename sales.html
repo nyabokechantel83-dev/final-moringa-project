@@ -61,4 +61,70 @@
   <script src="script.js"></script>
 
 </body>
+</html><!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory System</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <header>
+      <h1>Inventory Management</h1>
+      <p>Manage Products Efficiently</p>
+    </header>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="inventory.html">Inventory</a>
+      <a href="sales.html">Sales</a>
+    </nav>
+
+    <main>
+
+      <!-- INVENTORY SECTION -->
+      <section>
+        <h2>Add Product</h2>
+
+        <img src="Amazon Warehouse.jpg" alt="stock management warehouse" />
+
+        <form id="productForm">
+          <input type="text" id="productName" required />
+          <input type="number" id="price" required />
+          <input type="number" id="stock" required />
+          <button type="submit">Add Product</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Product List</h2>
+        <div id="productList"></div>
+      </section>
+
+      <!-- CONTACT FORM -->
+      <section>
+        <h2>Contact Support</h2>
+        <p>Need help with inventory? Send us a message below:</p>
+
+        <form id="contactForm">
+          <input type="text" id="name" required />
+          <input type="email" id="email" required />
+          <input type="text" id="message" required />
+
+          <button type="submit">Send Message</button>
+        </form>
+
+        <p id="contactStatus"></p>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>© 2026 Smart Retail System</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
