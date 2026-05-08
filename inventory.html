@@ -1,70 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inventory</title>
-  <link rel="stylesheet" href="style.css">
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory | Smart Retail Dashboard System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-  <body>
+  <header>
+    <h1>Inventory Management</h1>
+    <p>Manage your products and track stock value efficiently.</p>
+  </header>
 
-    <header>
-      <h1>Inventory Management</h1>
-      <p>Manage your products and track stock value</p>
-    </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="sales.html">Sales</a>
+  </nav>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="inventory.html">Inventory</a>
-      <a href="sales.html">Sales</a>
-    </nav>
+  <main>
 
-    <main>
+    <section>
+      <h2>Add Product</h2>
+      <img src="Amazon Warehouse.jpg" alt="Stock management warehouse" />
 
-      <!-- ADD PRODUCT -->
-      <section>
-        <h2>Add Product</h2>
-        <img src="Amazon Warehouse.jpg" alt="stock management warehouse" />
-        <form id="productForm">
-          <input type="text" id="productName" placeholder="Product name" required />
-          <input type="number" id="price" placeholder="Price (KES)" required />
-          <input type="number" id="stock" placeholder="Stock quantity" required />
-          <button type="submit">Add Product</button>
-        </form>
-      </section>
+      <form id="productForm">
+        <label for="productName">Product Name</label>
+        <input type="text" id="productName" placeholder="Product name" required />
 
-      <!-- PRODUCT LIST -->
-      <section>
-        <h2>Product List</h2>
-        <div id="productList"></div>
-      </section>
+        <label for="price">Price (KES)</label>
+        <input type="number" id="price" placeholder="Price (KES)" required />
 
-      <!-- INVENTORY REVENUE -->
-      <section>
-        <h2>Inventory Revenue</h2>
-        <div id="inventoryRevenue"></div>
-      </section>
+        <label for="stock">Stock Quantity</label>
+        <input type="number" id="stock" placeholder="Stock quantity" required />
 
-      <!-- CONTACT FORM -->
-      <section>
-        <h2>Contact Support</h2>
-        <p>Need help with inventory? Send us a message below:</p>
-        <form id="contactForm">
-          <input type="text" id="name" placeholder="Your name" required />
-          <input type="email" id="email" placeholder="Your email" required />
-          <input type="text" id="message" placeholder="Your message" required />
-          <button type="submit">Send Message</button>
-        </form>
-        <p id="contactStatus"></p>
-      </section>
+        <button type="submit">Add Product</button>
+      </form>
 
-    </main>
+      <p id="productStatus"></p>
+    </section>
 
-    <footer>
-      <p>© 2026 Smart Retail System</p>
-    </footer>
+    <section>
+      <h2>Product List</h2>
+      <div id="productList"></div>
+    </section>
 
-    <script src="script.js"></script>
-  </body>
+    <section>
+      <h2>Inventory Revenue</h2>
+      <div id="inventoryRevenue"></div>
+    </section>
+
+    <section>
+      <h2>Contact Support</h2>
+      <p>Need help with inventory? Send us a message below.</p>
+
+      <form id="contactForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Your email" required />
+
+        <label for="message">Message</label>
+        <input type="text" id="message" placeholder="Your message" required />
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <p id="contactStatus"></p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Smart Retail Dashboard System. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
 </html>
