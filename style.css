@@ -1,249 +1,111 @@
-/* ── BODY ── */
+/* BODY */
 body {
   font-family: Arial, sans-serif;
   background: #f1f5f9;
   color: #0f172a;
-  line-height: 1.6;
-  min-height: 100vh;
+  margin: 0;
+  line-height: 1.5;
 }
 
-/* ── HEADER ── */
+/* HEADER */
 header {
   background: #0f172a;
   color: white;
   text-align: center;
-  padding: 40px 20px;
+  padding: 30px;
 }
 
 header p {
-  color: #94a3b8;
-  margin-top: 8px;
-  font-size: 0.95rem;
+  color: #cbd5e1;
 }
 
-/* ── NAV ── */
+/* NAV */
 nav {
   display: flex;
   justify-content: center;
+  gap: 15px;
   background: white;
-  padding: 12px;
-  gap: 20px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid #e2e8f0;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
 nav a {
   text-decoration: none;
-  color: #64748b;
+  color: #334155;
   font-weight: bold;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: color 0.2s, background 0.2s;
 }
 
 nav a:hover {
-  color: #0f172a;
-  background: #f1f5f9;
+  color: #000;
 }
 
-nav a.active {
-  color: #0f172a;
-  border-bottom: 2px solid #1a8917;
-}
-
-/* ── MAIN ── */
+/* MAIN */
 main {
   width: 90%;
-  max-width: 850px;
-  margin: 30px auto;
+  max-width: 800px;
+  margin: 20px auto;
 }
 
-/* ── SECTIONS ── */
+/* SECTIONS */
 section {
   background: white;
-  padding: 30px;
-  margin-bottom: 25px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-/* ── HEADINGS ── */
-h2 {
+  padding: 20px;
   margin-bottom: 15px;
-  font-size: 1.3rem;
+  border-radius: 10px;
 }
 
-/* ── IMAGES ── */
+/* HEADINGS */
+h2 {
+  margin-bottom: 10px;
+}
+
+/* IMAGES */
 img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 10px;
   margin-top: 10px;
-  display: block;
-  object-fit: cover;
 }
 
-/* ── LABELS ── */
-label {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: bold;
-  margin-bottom: 4px;
-  color: #334155;
-}
-
-/* ── INPUTS ── */
-input, select {
+/* INPUTS */
+input {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 14px;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.2s;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-input:focus, select:focus {
-  border-color: #1a8917;
-}
-
-/* ── BUTTON ── */
+/* BUTTON */
 button {
-  background: #1a8917;
-  color: white;
-  padding: 12px;
-  border: none;
   width: 100%;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.2s;
+  padding: 10px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
-button:hover {
-  background: #166b13;
-}
-
-button:active {
-  background: #0f4f0d;
-}
-
-/* ── CARDS ── */
+/* CARDS */
 .card {
   background: #f8fafc;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
   border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 16px 20px;
-  margin-bottom: 12px;
 }
 
-.card h3 {
-  margin-bottom: 6px;
-  font-size: 1.1rem;
-  color: #0f172a;
-}
-
-.card p {
-  margin-bottom: 6px;
-  color: #334155;
-  font-size: 0.95rem;
-}
-
-.card button {
-  margin-top: 10px;
-  width: auto;               /* delete button doesnt stretch full width */
-  padding: 8px 16px;
-  font-size: 0.85rem;
-  background: #dc2626;       /* red for delete */
-}
-
-.card button:hover {
-  background: #b91c1c;
-}
-
-.card button:active {
-  background: #991b1b;
-}
-
-/* ── REVENUE CARD ── */
-#inventoryRevenue .card,
-#salesRevenue .card {
-  border-left: 4px solid #1a8917;   /* green left border for revenue */
-}
-
-/* ── PROFIT CARD ── */
-#profitLoss .card {
-  border-left: 4px solid #0f172a;   /* dark left border for profit and loss */
-}
-
-/* ── HOME SUMMARY CARD ── */
-#homeSummary .card {
-  border-left: 4px solid #2563eb;   /* blue left border for home summary */
-}
-
-/* ── EXPENSE CARD ── */
-#expenseList .card {
-  border-left: 4px solid #dc2626;   /* red left border for expenses */
-}
-
-/* ── CONTACT STATUS ── */
-#contactStatus {
-  margin-top: 10px;
-  font-size: 0.95rem;
-  font-weight: bold;
-}
-
-/* ── FOOTER ── */
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 25px;
-  color: #64748b;
+  padding: 15px;
   margin-top: 20px;
-  font-size: 0.9rem;
+  color: #64748b;
 }
 
-/* ── RESPONSIVE (TABLET) ── */
-@media (max-width: 768px) {
+/* RESPONSIVE */
+@media (max-width: 600px) {
   nav {
     flex-direction: column;
     text-align: center;
-    gap: 10px;
-  }
-
-  section {
-    padding: 20px;
-  }
-
-  header {
-    padding: 30px 15px;
-  }
-
-  .card {
-    padding: 14px 16px;
-  }
-}
-
-/* ── RESPONSIVE (MOBILE) ── */
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 20px;
-  }
-
-  section {
-    padding: 15px;
-  }
-
-  button {
-    font-size: 0.95rem;
-  }
-
-  .card {
-    padding: 12px 14px;
-  }
-
-  .card button {
-    width: 100%;       /* full width delete button on small screens */
   }
 }
