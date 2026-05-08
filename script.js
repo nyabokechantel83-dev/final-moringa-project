@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* ================= NAV ACTIVE LINK ================= */
+  // NAVIGATION LINK
   let links = document.querySelectorAll("nav a");
 
   links.forEach(function (link) {
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  /* ================= INVENTORY ================= */
+  // INVENTORY
 
   let productForm = document.getElementById("productForm");
   let productList = document.getElementById("productList");
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
   displayProducts();
 
 
-  /* ================= INVENTORY TOTAL ================= */
+// INVENTORY REVENUE
 
   function showInventoryTotal() {
     let box = document.getElementById("inventoryRevenue");
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
   showInventoryTotal();
 
 
-  /* ================= SALES ================= */
+  // SALES
 
   let salesForm = document.getElementById("salesForm");
   let salesList = document.getElementById("salesList");
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
   displaySales();
 
 
-  /* ================= EXPENSES ================= */
+  // EXPENSES
 
   let expenseForm = document.getElementById("expenseForm");
   let expenseList = document.getElementById("expenseList");
@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
   displayExpenses();
 
 
-  /* ================= PROFIT ================= */
+  // PROFIT
 
   function showProfitLoss() {
     let box = document.getElementById("profitLoss");
@@ -244,9 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   showProfitLoss();
 
-
-  /* ================= HOME SUMMARY ================= */
-
+// HOME SUMMARY
   function showHomeSummary() {
     let box = document.getElementById("homeSummary");
     if (!box) return;
