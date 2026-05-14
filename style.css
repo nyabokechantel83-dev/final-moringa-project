@@ -73,16 +73,44 @@ input {
   margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* SELECT DROPDOWN */
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: white;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* LABELS */
+label {
+  font-weight: bold;
+  font-size: 14px;
+  display: block;
+  margin-top: 8px;
 }
 
 /* BUTTON */
 button {
   width: 100%;
   padding: 10px;
+  margin-top: 10px;
   background: green;
   color: white;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #005500;
 }
 
 /* CARDS */
@@ -107,5 +135,9 @@ footer {
   nav {
     flex-direction: column;
     text-align: center;
+  }
+
+  main {
+    width: 95%;
   }
 }

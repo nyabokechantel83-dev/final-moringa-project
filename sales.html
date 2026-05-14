@@ -1,10 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sales</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Sales | Smart Retail Dashboard System</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      background: white;
+    }
+    label {
+      font-weight: bold;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
@@ -22,7 +37,6 @@
 
   <main>
 
-    <!-- CASHIER COUNTER SECTION -->
     <section>
       <h2>Cashier Counter</h2>
       <img src="How to Level Up Your Retail Store's Customer Service.jpg" alt="Cashier counter in retail shop" />
@@ -32,55 +46,61 @@
       </p>
     </section>
 
-    <!-- SALES FORM -->
     <section>
       <h2>Record A Sale</h2>
       <form id="salesForm">
-        <input type="text" id="saleProduct" placeholder="Product name" required />
-        <input type="number" id="quantity" placeholder="Quantity sold" required />
-        <input type="number" id="salePrice" placeholder="Sale amount (KES)" required />
+        <label for="saleProduct">Product</label>
+        <select id="saleProduct" required>
+          <option value="">-- Select a product --</option>
+        </select>
+
+        <label for="quantity">Quantity Sold</label>
+        <input type="number" id="quantity" placeholder="Quantity sold" min="1" required />
+
+        <label for="salePrice">Sale Amount (KES)</label>
+        <input type="number" id="salePrice" placeholder="Auto-calculated or enter manually" required />
+
         <button type="submit">Add Sale</button>
       </form>
     </section>
 
-    <!-- SALES LIST -->
     <section>
       <h2>Sales Records</h2>
       <div id="salesList"></div>
     </section>
 
-    <!-- SALES REVENUE -->
     <section>
       <h2>Sales Revenue</h2>
       <div id="salesRevenue"></div>
     </section>
 
-    <!-- EXPENSES FORM -->
     <section>
       <h2>Add Expense</h2>
       <form id="expenseForm">
-        <input type="text" id="expenseName" placeholder="Expense name e.g. Rent" required />
-        <input type="number" id="expenseAmount" placeholder="Amount (KES)" required />
+        <label for="expenseName">Expense Name</label>
+        <input type="text" id="expenseName" placeholder="e.g. Rent, Transport" required />
+
+        <label for="expenseAmount">Amount (KES)</label>
+        <input type="number" id="expenseAmount" placeholder="Amount (KES)" min="0" required />
+
         <button type="submit">Add Expense</button>
       </form>
     </section>
 
-    <!-- EXPENSES LIST -->
     <section>
       <h2>Expenses List</h2>
       <div id="expenseList"></div>
     </section>
 
-    <!-- PROFIT AND LOSS -->
     <section>
-      <h2>Profit & Loss</h2>
+      <h2>Profit &amp; Loss</h2>
       <div id="profitLoss"></div>
     </section>
 
   </main>
 
   <footer>
-    <p>© 2026 Smart Retail Dashboard System</p>
+    <p>&copy; 2026 Smart Retail Dashboard System. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>

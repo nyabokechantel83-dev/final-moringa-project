@@ -30,10 +30,10 @@
         <input type="text" id="productName" placeholder="Product name" required />
 
         <label for="price">Price (KES)</label>
-        <input type="number" id="price" placeholder="Price (KES)" required />
+        <input type="number" id="price" placeholder="Price per unit (KES)" min="0" required />
 
         <label for="stock">Stock Quantity</label>
-        <input type="number" id="stock" placeholder="Stock quantity" required />
+        <input type="number" id="stock" placeholder="Stock quantity" min="0" required />
 
         <button type="submit">Add Product</button>
       </form>
@@ -47,7 +47,7 @@
     </section>
 
     <section>
-      <h2>Inventory Revenue</h2>
+      <h2>Inventory Value</h2>
       <div id="inventoryRevenue"></div>
     </section>
 
